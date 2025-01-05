@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class Principal {
 
-    private GestorDeConsultas gestor;
-    private HistorialDeConsultas historial;
+    private final GestorDeConsultas gestor;
+    private final HistorialDeConsultas historial;
 
     public Principal(){
         this.gestor = new GestorDeConsultas();
