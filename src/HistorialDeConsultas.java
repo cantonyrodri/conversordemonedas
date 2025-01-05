@@ -22,5 +22,4 @@ public class HistorialDeConsultas {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         return ahora.format(formatter);
     }
-
 }

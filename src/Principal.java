@@ -16,12 +16,12 @@ public class Principal {
 
         do {
             System.out.println("\n**** Conversor de Monedas ****");
-            System.out.println("1. USD a EUR");
-            System.out.println("2. USD a GBP");
-            System.out.println("3. USD a JPY");
-            System.out.println("4. USD a AUD");
-            System.out.println("5. USD a CAD");
-            System.out.println("6. USD a MXN");
+            System.out.println("1. PEN a USD");
+            System.out.println("2. PEN a EUR");
+            System.out.println("3. PEN a JPY");
+            System.out.println("4. PEN a AUD");
+            System.out.println("5. PEN a CAD");
+            System.out.println("6. PEN a MXN");
             System.out.println("7. Otras conversiones");
             System.out.println("8. Salir");
             System.out.print("Seleccione una opción: ");
@@ -66,7 +66,7 @@ public class Principal {
                     monto,
                     montoConvertido);
         } catch (Exception e) {
-            System.out.println("Error al realizar al conversion: " + e.getMessage());
+            System.out.println("Error al realizar la conversion: " + e.getMessage());
         }
     }
 
