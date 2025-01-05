@@ -5,11 +5,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class HistorialDeConsultas {
-    private static final String ARCHIVO_HISTORIAL = "historial_consultas";
+    private static final String ARCHIVO_HISTORIAL = "historial_consultas.txt";
 
-    public void guardarConsulta(String fecha, String detalle, double montoConvertido){
+    public void guardarConsulta(String fecha, String detalle,double montoOriginal, double montoConvertido){
         try (BufferedWriter writer= new BufferedWriter(new FileWriter(ARCHIVO_HISTORIAL,true))){
-            writer.write(fecha + "," + detalle + "," + montoConvertido);
+            writer.write(fecha + "," + detalle + "," + montoOriginal + "," + montoConvertido);
             writer.newLine();
 
         } catch (IOException e) {

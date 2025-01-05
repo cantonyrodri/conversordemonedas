@@ -36,12 +36,12 @@ public class Principal {
     public void procesarOpcion(int opcion){
         Scanner lectura = new Scanner(System.in);
         switch (opcion){
-            case 1: realizarConversion("USD", "EUR"); break;
-            case 2: realizarConversion("USD", "GBP"); break;
-            case 3: realizarConversion("USD", "JPY"); break;
-            case 4: realizarConversion("USD", "AUD"); break;
-            case 5: realizarConversion("USD", "CAD"); break;
-            case 6: realizarConversion("USD", "MXN"); break;
+            case 1: realizarConversion("PEN", "USD"); break;
+            case 2: realizarConversion("PEN", "EUR"); break;
+            case 3: realizarConversion("PEN", "JPY"); break;
+            case 4: realizarConversion("PEN", "AUD"); break;
+            case 5: realizarConversion("PEN", "CAD"); break;
+            case 6: realizarConversion("PEN", "MXN"); break;
             case 7: realizarConversionAdicional(); break;
             case 8:
                 System.out.println("El conversor de monedas finalizó");
@@ -62,7 +62,10 @@ public class Principal {
 
             System.out.println("Monto convertido: " + montoConvertido + " " + monedaObjetivo);
             String fechaActual = historial.obtenerFechaActual();
-            historial.guardarConsulta(fechaActual, monedaBase + " a " + monedaObjetivo, montoConvertido);
+            historial.guardarConsulta(fechaActual,
+                    monedaBase + " a " + monedaObjetivo,
+                    monto,
+                    montoConvertido);
         } catch (Exception e) {
             System.out.println("Error al realizar al conversion: " + e.getMessage());;
         }
