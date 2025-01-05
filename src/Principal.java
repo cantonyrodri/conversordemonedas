@@ -34,7 +34,6 @@ public class Principal {
     }
 
     public void procesarOpcion(int opcion){
-        Scanner lectura = new Scanner(System.in);
         switch (opcion){
             case 1: realizarConversion("PEN", "USD"); break;
             case 2: realizarConversion("PEN", "EUR"); break;
@@ -67,7 +66,7 @@ public class Principal {
                     monto,
                     montoConvertido);
         } catch (Exception e) {
-            System.out.println("Error al realizar al conversion: " + e.getMessage());;
+            System.out.println("Error al realizar al conversion: " + e.getMessage());
         }
     }
 

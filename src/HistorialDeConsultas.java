@@ -13,7 +13,7 @@ public class HistorialDeConsultas {
             writer.newLine();
 
         } catch (IOException e) {
-            System.out.println("Error al guardar el historial, " + e.getMessage());;
+            System.out.println("Error al guardar el historial, " + e.getMessage());
         }
     }
 
