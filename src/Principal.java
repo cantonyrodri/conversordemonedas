@@ -12,7 +12,7 @@ public class Principal {
 
     public void mostrarMenuPrincipal(){
         Scanner lectura = new Scanner(System.in);
-        int opcion;
+        int opcion = -1;
 
         do {
             System.out.println("\n**** Conversor de Monedas ****");
@@ -26,10 +26,19 @@ public class Principal {
             System.out.println("8. Salir");
             System.out.print("Seleccione una opción: ");
 
-            opcion = lectura.nextInt();
-            procesarOpcion(opcion);
+            try {
+                if(lectura.hasNextInt()){
+                    opcion = lectura.nextInt();
+                    procesarOpcion(opcion);
+                } else {
+                    System.out.println("Entrada inválida. Por favor, ingrese un valor válido");
+                    lectura.next();
+                }
+            } catch (Exception e){
+                System.out.println("Ocurrio un error: " + e.getMessage());
+                lectura.next();
+            }
         } while (opcion != 8);
-
         lectura.close();
     }
 
@@ -43,7 +52,7 @@ public class Principal {
             case 6: realizarConversion("PEN", "MXN"); break;
             case 7: realizarConversionAdicional(); break;
             case 8:
-                System.out.println("El conversor de monedas finalizó");
+                System.out.println("El conversor de monedas finalizó correctamente.");
                 break;
             default:
                 System.out.println("Opción inválida. Intente de nuevo.");
@@ -72,13 +81,18 @@ public class Principal {
 
     private void realizarConversionAdicional(){
         Scanner lectura = new Scanner(System.in);
-        System.out.println("Ingrese la moneda base (ej: USD): ");
+        System.out.println("Ingrese la moneda base (ej: PEN): ");
         String monedaBase = lectura.next().toUpperCase();
 
         System.out.println("Ingrese la moneda base (ej: USD): ");
         String monedaObjetivo = lectura.next().toUpperCase();
 
-        realizarConversion(monedaBase,monedaObjetivo);
+        try {
+            realizarConversion(monedaBase,monedaObjetivo);
+        } catch (Exception e) {
+            System.out.println("No se puede completar la conversion." +
+                    "Verifique las monedas ingresadas");
+        }
     }
 
     public static void main(String[] args) {

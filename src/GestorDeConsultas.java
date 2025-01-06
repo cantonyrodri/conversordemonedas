@@ -20,6 +20,7 @@ public class GestorDeConsultas {
             HttpRequest pedido = HttpRequest.newBuilder()
                     .uri(direccion)
                     .build();
+
             HttpResponse<String> respuesta = cliente
                     .send(pedido, HttpResponse.BodyHandlers.ofString());
 
@@ -27,10 +28,14 @@ public class GestorDeConsultas {
             JsonElement jsonElement = JsonParser.parseString(json);
             JsonObject jsonObject = jsonElement.getAsJsonObject();
 
+            if (!jsonObject.has("conversion_rate")) {
+                throw new RuntimeException("Moneda no valida o no soportada por la API.");
+            }
+
             return jsonObject.get("conversion_rate").getAsDouble();
 
         } catch (IOException | InterruptedException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Error en la conexión con la API" + e.getMessage());
         }
     }
 
